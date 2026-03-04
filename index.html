@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Traffic Signal Aware Navigation</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="info-panel">
+      <h1>Smart Signal-Aware Navigation</h1>
+      <p class="subtitle">Simulated traffic signals + route intelligence</p>
+
+      <section class="card">
+        <h2>Configuration</h2>
+        <label>
+          Average speed (km/h)
+          <input id="speed-input" type="number" min="5" max="120" step="1" value="35" />
+        </label>
+        <button id="recalculate-btn" type="button">Recalculate Prediction</button>
+      </section>
+
+      <section class="card">
+        <h2>Next Signal Prediction</h2>
+        <dl id="prediction-list">
+          <div><dt>Next Signal</dt><dd id="pred-id">—</dd></div>
+          <div><dt>Road</dt><dd id="pred-road">—</dd></div>
+          <div><dt>Distance to Signal</dt><dd id="pred-distance">—</dd></div>
+          <div><dt>Signal State</dt><dd id="pred-state">—</dd></div>
+          <div><dt>Estimated Arrival Time</dt><dd id="pred-arrival">—</dd></div>
+          <div><dt>Expected Wait Time</dt><dd id="pred-wait">—</dd></div>
+        </dl>
+      </section>
+
+      <section class="card">
+        <h2>Map Click Debugger</h2>
+        <p>Click map to capture coordinates:</p>
+        <p id="debug-coords">Lat: —, Lng: —</p>
+      </section>
+
+      <section class="card legend">
+        <h2>Signal Legend</h2>
+        <p><span class="dot red"></span> RED</p>
+        <p><span class="dot green"></span> GREEN</p>
+        <p><span class="dot yellow"></span> YELLOW</p>
+        <p><span class="dot highlight"></span> On route (highlighted ring)</p>
+      </section>
+    </aside>
+
+    <main id="map"></main>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
