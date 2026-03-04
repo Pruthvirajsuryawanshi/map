@@ -1,0 +1,154 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --card: #1f2937;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  height: 100vh;
+}
+
+#info-panel {
+  padding: 1rem;
+  overflow-y: auto;
+  border-right: 1px solid #374151;
+  background: var(--panel);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.subtitle {
+  margin-top: 0.25rem;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 0.85rem;
+  margin-top: 1rem;
+}
+
+h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+}
+
+input,
+button {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid #4b5563;
+  background: #111827;
+  color: var(--text);
+}
+
+button {
+  cursor: pointer;
+  margin-top: 0.6rem;
+  border-color: var(--accent);
+}
+
+#prediction-list {
+  margin: 0;
+}
+
+#prediction-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  border-bottom: 1px dashed #374151;
+  padding: 0.3rem 0;
+}
+
+#prediction-list dt {
+  color: var(--muted);
+}
+
+#prediction-list dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 600;
+}
+
+#map {
+  height: 100vh;
+}
+
+.signal-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #0b0f1a;
+}
+
+.signal-red {
+  background: #ef4444;
+}
+
+.signal-green {
+  background: #22c55e;
+}
+
+.signal-yellow {
+  background: #f59e0b;
+}
+
+.signal-on-route {
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.5);
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+.dot.red { background: #ef4444; }
+.dot.green { background: #22c55e; }
+.dot.yellow { background: #f59e0b; }
+.dot.highlight { background: #38bdf8; }
+
+@media (max-width: 900px) {
+  #app {
+    grid-template-columns: 1fr;
+    grid-template-rows: 46vh 54vh;
+  }
+
+  #info-panel {
+    border-right: 0;
+    border-bottom: 1px solid #374151;
+  }
+
+  #map {
+    height: 54vh;
+  }
+}
